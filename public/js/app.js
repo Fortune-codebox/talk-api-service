@@ -66793,7 +66793,7 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_URL", function() { return API_URL; });
-var API_URL = "http://localhost:8000/api";
+var API_URL = "http://talk-1.herokuapp.com/api";
 
 /***/ }),
 
