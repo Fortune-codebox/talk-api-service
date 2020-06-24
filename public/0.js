@@ -332,7 +332,7 @@ var render = function() {
                 _c("i", { staticClass: "fa fa-history" }),
                 _vm._v(" "),
                 _c("span", { staticClass: "px-3" }, [
-                  _vm._v("\n                 All Talks\n                 ")
+                  _vm._v("\n                 Talks\n                 ")
                 ])
               ]
             ),

@@ -50241,7 +50241,7 @@ var render = function() {
         "div",
         { staticClass: "d-flex justify-content-between" },
         [
-          _c("h3", { staticClass: "ml-2 pt-5" }, [_vm._v("All Talks")]),
+          _c("h3", { staticClass: "ml-2 pt-5" }, [_vm._v("Talks")]),
           _vm._v(" "),
           _c(
             "router-link",

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="d-flex justify-content-between">
-     <h3 class="ml-2 pt-5">All Talks</h3>
+     <h3 class="ml-2 pt-5">Talks</h3>
       <router-link :to="{ name: 'add-talk' }">
       <b-button class="top-b mt-5" >create talk</b-button>
       </router-link>

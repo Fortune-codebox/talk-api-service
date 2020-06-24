@@ -8,7 +8,7 @@
                 <i class="fa fa-history"></i>
                 <span class="px-3">
                      <!-- <img src="@/assets/first.png" style="width: 3em;" alt="">  -->
-                     All Talks
+                     Talks
                      </span>
             </b-nav-item>
 
