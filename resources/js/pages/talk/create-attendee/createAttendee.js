@@ -36,6 +36,11 @@ export default {
             window.console.log('talk', payload);
             this.$store.dispatch(CREATE_ATTENDEE, payload).then(
                 () => {
+                    this.$noty.info("Created successfully", {
+                        killer: true,
+                        timeout: 3000,
+                        layout: 'topCenter'
+                      })
                     this.$router.push({name: 'add-talk'})
                 }
             )

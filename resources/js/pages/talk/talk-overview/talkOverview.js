@@ -24,6 +24,11 @@ export default {
             alert("you are deleting " + theme);
               this.$store.dispatch(DELETE_TALK, id).then(
                   () => {
+                    this.$noty.info("Deleted " + theme + ' successfully', {
+                        killer: true,
+                        timeout: 4000,
+                        layout: 'topCenter'
+                      })
                       this.getAllTalks();
                   }
               )
