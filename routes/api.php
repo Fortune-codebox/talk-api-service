@@ -15,3 +15,4 @@ Route::delete('/talks/{id}', 'TalkController@deleteTalk');
 //Attendee Routes
 Route::post('/attendee', 'AttendeeController@addAttendee');
 Route::get('/attendees', 'AttendeeController@getAttendees');
+// Route::post()

@@ -12,23 +12,32 @@ class TalkController extends Controller
 {
 
     use HelperTrait;
-
+    
+    // gets all talks created
     public function getTalks() {
+        // get all talks LIFO i.e last in first out
         $talks = Talk::latest()->get();
-        return $this->apiResponse(200, 'success', $talks);
+
+        // checks if the query was not empty then return the talk array
+        if($talks) {
+            return $this->apiResponse(200, 'success', $talks);
+        }
+        
+        // else return an empty array
+        return $this->apiResponse(200, 'success', []);
     }
 
     public function addTalk(TalkRequest $request) {
 
-        // validate requests
+        // validate talk requests
         $validatedTalk = $request->validated();
 
-        // creates a talk 
+        // creates a talk if it doesn't exist
         $createdTalk = Talk::createIfNotExist($validatedTalk);
 
         $formatted = $this->formatData($createdTalk);
         
-        // checks if attendees were passed in the request and syncs that with talk model i.e 
+        // if attendees was sent from the request it will sync the pivot table else it will create the talk without attendees
         if($request->attendees) {
          $createdTalk->attendees()->sync($request->attendees);
         }
@@ -38,12 +47,16 @@ class TalkController extends Controller
 
 
     public function deleteTalk($id) {
+        // find the record you wanna delere
         $talk = Talk::find($id);
 
+        // detach/remove/delete the records from all assiociative pivot tables and relationships
         $talk->attendees()->detach();
 
+        // delete the $talk
         $talk->delete();
 
+        //return response
         return $this->apiResponse(204, 'success', []);
     }
 }

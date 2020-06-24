@@ -1,5 +1,5 @@
 import {mapGetters} from "vuex";
-import { GET_ALL_TALKS } from "../../../store/actions";
+import { GET_ALL_TALKS, DELETE_TALK } from "../../../store/actions";
 
 
 export default {
@@ -20,17 +20,14 @@ export default {
                 window.console.log(err);
             });
         },
-        // deleteEmployee(id) {
-        //     alert("you are deleting this employee with id:" + id);
-        //       this.$store.dispatch(DELETE_EMPLOYEE, id).then(
-        //           () => {
-        //               this.getAllEmployees();
-        //           }
-        //       )
-        // },
-        // editEmployee(id) {  
-        //     this.$router.push({name: 'edit-employee', params:{employeeId:id, editing: true}})
-        // }
+        deleteTalk(id, theme) {
+            alert("you are deleting " + theme);
+              this.$store.dispatch(DELETE_TALK, id).then(
+                  () => {
+                      this.getAllTalks();
+                  }
+              )
+        }
     },
     computed: {
       ...mapGetters(['talks'])

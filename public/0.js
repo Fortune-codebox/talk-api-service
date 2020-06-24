@@ -341,11 +341,31 @@ var render = function() {
               _c("small", [_vm._v("PROJECT")])
             ]),
             _vm._v(" "),
-            _c("b-nav-item", { staticClass: "links pl-4" }, [
-              _c("i", { staticClass: "fa fa-talk" }),
-              _vm._v(" "),
-              _c("span", { staticClass: "px-3" }, [_vm._v("Arena Sport")])
-            ])
+            _c(
+              "b-nav-item",
+              {
+                staticClass: "links pl-4",
+                attrs: { to: { name: "add-attendee" } }
+              },
+              [
+                _c("i", { staticClass: "fa fa-talk" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "px-3" }, [_vm._v("Create attendee")])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "b-nav-item",
+              {
+                staticClass: "links pl-4",
+                attrs: { to: { name: "add-talk" } }
+              },
+              [
+                _c("i", { staticClass: "fa fa-talk" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "px-3" }, [_vm._v("Create talk")])
+              ]
+            )
           ],
           1
         )
@@ -391,7 +411,7 @@ var render = function() {
       _c("div", { staticClass: "row mt-4 ml-2" }, [
         _c("div", { staticClass: "col-3" }, [_c("Sidebar")], 1),
         _vm._v(" "),
-        _c("div", { staticClass: "col-9" }, [_c("router-view")], 1)
+        _c("div", { staticClass: "col-8" }, [_c("router-view")], 1)
       ])
     ],
     1

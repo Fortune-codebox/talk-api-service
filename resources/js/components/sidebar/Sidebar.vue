@@ -14,10 +14,16 @@
 
             <span class="mt-2 pl-4 top-links"> <small>PROJECT</small> </span>
 
-            <b-nav-item class="links pl-4">
+            <b-nav-item :to="{name: 'add-attendee'}" class="links pl-4">
                 <i class="fa fa-talk"></i>
-                <span class="px-3">Arena Sport</span>
+                <span class="px-3">Create attendee</span>
             </b-nav-item>
+            
+            <b-nav-item :to="{name: 'add-talk'}" class="links pl-4">
+                <i class="fa fa-talk"></i>
+                <span class="px-3">Create talk</span>
+            </b-nav-item>
+
 
             
 

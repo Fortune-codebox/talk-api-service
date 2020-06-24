@@ -2,7 +2,9 @@
 import {
     GET_ALL_TALKS,
     GET_ALL_ATTENDEES,
-    CREATE_TALK
+    CREATE_TALK,
+    CREATE_ATTENDEE,
+    DELETE_TALK
   } from "../actions";
   
   import {SET_ALL_TALKS, SET_ALL_ATTENDEES} from "../mutations";
@@ -34,19 +36,14 @@ import {
     async[CREATE_TALK] (context, payload) {
       await ApiService.post('/talks', payload);
     },
-    // async[DELETE_EMPLOYEE] (context, payload) {
-    //   await ApiService.delete('/employees/' + payload);
-    // },
-    
-    // async[GET_EMPLOYEE] (context, payload) {
-    //  const {data} = await ApiService.query('/employees/' + payload);
-    //  context.commit(SET_EMPLOYEE, data.data);
-    //  return data;
-    // },
-    // async[UPDATE_EMPLOYEE] (context, payload) {
-    //   const {data} = await ApiService.put('/employees/'+payload.employee_id, payload);
-    // return data;
-    // }
+
+    async[CREATE_ATTENDEE] (context, payload) {
+      await ApiService.post('/attendee', payload);
+    },
+
+    async[DELETE_TALK] (context, payload) {
+      await ApiService.delete('/talks/' + payload);
+    },
   
   };
   

@@ -7,7 +7,7 @@
                 <div class="col-3" >
                     <Sidebar/>
                 </div>
-                <div class="col-9">
+                <div class="col-8">
                     <router-view></router-view>
                 </div>
             </div>
