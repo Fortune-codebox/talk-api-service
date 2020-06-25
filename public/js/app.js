@@ -50363,50 +50363,64 @@ var render = function() {
             _vm._v(" " + _vm._s(_vm.talk.guest_speaker) + "\n     ")
           ]),
           _vm._v(" "),
-          _vm._l(_vm.attendees, function(attendee, i) {
-            return _c(
-              "div",
-              { key: i },
-              [
-                _c(
-                  "b-card",
-                  { staticClass: "mt-3 shadow" },
+          _vm.attendees.length === 0
+            ? _c(
+                "div",
+                [
+                  _c("b-card", { staticClass: "text-center" }, [
+                    _vm._v(
+                      "\n                There are no attendees for this talk\n         "
+                    )
+                  ])
+                ],
+                1
+              )
+            : _vm._l(_vm.attendees, function(attendee, i) {
+                return _c(
+                  "div",
+                  { key: i },
                   [
                     _c(
-                      "b-row",
+                      "b-card",
+                      { staticClass: "mt-3 shadow" },
                       [
-                        _c("b-col", [
-                          _c(
-                            "small",
-                            { staticStyle: { "font-weight": "bold" } },
-                            [_vm._v("name")]
-                          ),
-                          _vm._v(
-                            ": " +
-                              _vm._s(attendee.first_name) +
-                              " " +
-                              _vm._s(attendee.last_name)
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("b-col", [
-                          _c(
-                            "small",
-                            { staticStyle: { "font-weight": "bold" } },
-                            [_vm._v(" Reason For Attending")]
-                          ),
-                          _vm._v(": " + _vm._s(attendee.reason_for_attending))
-                        ])
+                        _c(
+                          "b-row",
+                          [
+                            _c("b-col", [
+                              _c(
+                                "small",
+                                { staticStyle: { "font-weight": "bold" } },
+                                [_vm._v("name")]
+                              ),
+                              _vm._v(
+                                ": " +
+                                  _vm._s(attendee.first_name) +
+                                  " " +
+                                  _vm._s(attendee.last_name)
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c("b-col", [
+                              _c(
+                                "small",
+                                { staticStyle: { "font-weight": "bold" } },
+                                [_vm._v(" Reason For Attending")]
+                              ),
+                              _vm._v(
+                                ": " + _vm._s(attendee.reason_for_attending)
+                              )
+                            ])
+                          ],
+                          1
+                        )
                       ],
                       1
                     )
                   ],
                   1
                 )
-              ],
-              1
-            )
-          })
+              })
         ],
         2
       )

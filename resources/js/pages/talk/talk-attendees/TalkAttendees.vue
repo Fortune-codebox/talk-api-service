@@ -10,8 +10,14 @@
              <span class="font-weight-bold">Guest Speaker: </span> {{talk.guest_speaker}}
          </div>
 
-         <div v-for="(attendee, i) in attendees" :key="i">
-             <b-card class="mt-3 shadow">
+         <div v-if="attendees.length === 0">
+             <b-card class="text-center">
+                    There are no attendees for this talk
+             </b-card>
+         </div>
+   
+         <div v-else v-for="(attendee, i) in attendees" :key="i">
+             <b-card  class="mt-3 shadow">
                 <b-row>
                     <b-col> <small style="font-weight: bold">name</small>: {{attendee.first_name}} {{attendee.last_name}}</b-col>
                     <b-col> <small style="font-weight: bold"> Reason For Attending</small>: {{attendee.reason_for_attending}}</b-col>
