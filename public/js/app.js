@@ -50366,6 +50366,7 @@ var render = function() {
           _vm.attendees.length === 0
             ? _c(
                 "div",
+                { staticClass: "mt-3" },
                 [
                   _c("b-card", { staticClass: "text-center" }, [
                     _vm._v(

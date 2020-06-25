@@ -10,7 +10,7 @@
              <span class="font-weight-bold">Guest Speaker: </span> {{talk.guest_speaker}}
          </div>
 
-         <div v-if="attendees.length === 0">
+         <div class="mt-3" v-if="attendees.length === 0">
              <b-card class="text-center">
                     There are no attendees for this talk
              </b-card>
