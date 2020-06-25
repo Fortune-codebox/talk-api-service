@@ -2,18 +2,20 @@
 import {
     GET_ALL_TALKS,
     GET_TALK_ATTENDEES,
+    GET_ALL_ATTENDEES,
     CREATE_TALK,
     CREATE_ATTENDEE,
     DELETE_TALK
   } from "../actions";
   
-  import {SET_ALL_TALKS, SET_ALL_ATTENDEES} from "../mutations";
+  import {SET_ALL_TALKS, SET_ALL_ATTENDEES, SET_TALK_ATTENDEES} from "../mutations";
   import {ApiService} from "../../handler";
   
   const initialState = {
     talks: {},
     talk: {},
-    attendees: []
+    attendees: [],
+    talkAttendees: []
   };
   
   
@@ -29,6 +31,12 @@ import {
 
     async [GET_TALK_ATTENDEES](context, payload) {
       const {data} = await ApiService.query('/talk/attendees/' + payload);
+      context.commit(SET_ALL_ATTENDEES, data.data)
+      return data;
+    },
+
+    async [GET_ALL_ATTENDEES](context) {
+      const {data} = await ApiService.query('/attendees');
       context.commit(SET_ALL_ATTENDEES, data.data)
       return data;
     },
@@ -53,7 +61,10 @@ import {
       state.talks = talks;
     },
     [SET_ALL_ATTENDEES](state, attendees) {
-      state.talks = attendees;
+      state.attendees = attendees;
+    },
+    [SET_TALK_ATTENDEES](state, talkattendees) {
+      state.talkattendees = talkattendees;
     },
   };
   const getters = {

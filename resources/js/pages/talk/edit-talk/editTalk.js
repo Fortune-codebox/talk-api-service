@@ -57,15 +57,7 @@ export default {
         }
     },
     mounted() {
-
         this.getAttendees();
-       
-       if (this.editing === true) {
-            this.getOneEmployee(this.employee_id)
-       } else {
-           this.editing = false
-       }
-       
     },
     created() {
         

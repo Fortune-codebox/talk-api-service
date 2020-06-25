@@ -7,4 +7,5 @@ export const CREATE_TALK = "createTalk";
 //attendees
 
 export const CREATE_ATTENDEE = "create_attendee";
-export const GET_TALK_ATTENDEES = "get_all_attendees";
+export const GET_ALL_ATTENDEES = "get_all_attendees";
+export const GET_TALK_ATTENDEES = "get_talk_attendees";

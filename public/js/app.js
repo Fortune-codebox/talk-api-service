@@ -2191,12 +2191,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.getAttendees();
-
-    if (this.editing === true) {
-      this.getOneEmployee(this.employee_id);
-    } else {
-      this.editing = false;
-    }
   },
   created: function created() {
     this.employee_id = this.$route.params.employeeId;
@@ -67656,7 +67650,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!*********************************************!*\
   !*** ./resources/js/store/actions/index.js ***!
   \*********************************************/
-/*! exports provided: GET_ALL_TALKS, GET_TALK, DELETE_TALK, CREATE_TALK, CREATE_ATTENDEE, GET_TALK_ATTENDEES */
+/*! exports provided: GET_ALL_TALKS, GET_TALK, DELETE_TALK, CREATE_TALK, CREATE_ATTENDEE, GET_ALL_ATTENDEES, GET_TALK_ATTENDEES */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67666,6 +67660,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_TALK", function() { return DELETE_TALK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_TALK", function() { return CREATE_TALK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_ATTENDEE", function() { return CREATE_ATTENDEE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ALL_ATTENDEES", function() { return GET_ALL_ATTENDEES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_TALK_ATTENDEES", function() { return GET_TALK_ATTENDEES; });
 var GET_ALL_TALKS = "get_all_talks";
 var GET_TALK = "getTalk";
@@ -67673,7 +67668,8 @@ var DELETE_TALK = "deletetalk";
 var CREATE_TALK = "createTalk"; //attendees
 
 var CREATE_ATTENDEE = "create_attendee";
-var GET_TALK_ATTENDEES = "get_all_attendees";
+var GET_ALL_ATTENDEES = "get_all_attendees";
+var GET_TALK_ATTENDEES = "get_talk_attendees";
 
 /***/ }),
 
@@ -67739,7 +67735,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   talks: {},
   talk: {},
-  attendees: []
+  attendees: [],
+  talkAttendees: []
 };
 var state = _objectSpread({}, initialState);
 var actions = (_actions = {}, _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["GET_ALL_TALKS"], function (context) {
@@ -67790,30 +67787,38 @@ var actions = (_actions = {}, _defineProperty(_actions, _actions__WEBPACK_IMPORT
       }
     }, _callee2);
   }))();
-}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["CREATE_TALK"], function (context, payload) {
+}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["GET_ALL_ATTENDEES"], function (context) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+    var _yield$ApiService$que3, data;
+
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
             _context3.next = 2;
-            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"].post('/talks', payload);
+            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"].query('/attendees');
 
           case 2:
+            _yield$ApiService$que3 = _context3.sent;
+            data = _yield$ApiService$que3.data;
+            context.commit(_mutations__WEBPACK_IMPORTED_MODULE_2__["SET_ALL_ATTENDEES"], data.data);
+            return _context3.abrupt("return", data);
+
+          case 6:
           case "end":
             return _context3.stop();
         }
       }
     }, _callee3);
   }))();
-}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["CREATE_ATTENDEE"], function (context, payload) {
+}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["CREATE_TALK"], function (context, payload) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"].post('/attendee', payload);
+            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"].post('/talks', payload);
 
           case 2:
           case "end":
@@ -67822,14 +67827,14 @@ var actions = (_actions = {}, _defineProperty(_actions, _actions__WEBPACK_IMPORT
       }
     }, _callee4);
   }))();
-}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["DELETE_TALK"], function (context, payload) {
+}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["CREATE_ATTENDEE"], function (context, payload) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"]["delete"]('/talks/' + payload);
+            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"].post('/attendee', payload);
 
           case 2:
           case "end":
@@ -67838,11 +67843,29 @@ var actions = (_actions = {}, _defineProperty(_actions, _actions__WEBPACK_IMPORT
       }
     }, _callee5);
   }))();
+}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["DELETE_TALK"], function (context, payload) {
+  return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.next = 2;
+            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"]["delete"]('/talks/' + payload);
+
+          case 2:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }))();
 }), _actions);
 var mutations = (_mutations = {}, _defineProperty(_mutations, _mutations__WEBPACK_IMPORTED_MODULE_2__["SET_ALL_TALKS"], function (state, talks) {
   state.talks = talks;
 }), _defineProperty(_mutations, _mutations__WEBPACK_IMPORTED_MODULE_2__["SET_ALL_ATTENDEES"], function (state, attendees) {
-  state.talks = attendees;
+  state.attendees = attendees;
+}), _defineProperty(_mutations, _mutations__WEBPACK_IMPORTED_MODULE_2__["SET_TALK_ATTENDEES"], function (state, talkattendees) {
+  state.talkattendees = talkattendees;
 }), _mutations);
 var getters = {
   talks: function talks(state) {
@@ -67865,16 +67888,18 @@ var getters = {
 /*!***********************************************!*\
   !*** ./resources/js/store/mutations/index.js ***!
   \***********************************************/
-/*! exports provided: SET_ALL_TALKS, SET_ALL_ATTENDEES, SET_TALK */
+/*! exports provided: SET_ALL_TALKS, SET_ALL_ATTENDEES, SET_TALK_ATTENDEES, SET_TALK */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ALL_TALKS", function() { return SET_ALL_TALKS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_ALL_ATTENDEES", function() { return SET_ALL_ATTENDEES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_TALK_ATTENDEES", function() { return SET_TALK_ATTENDEES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_TALK", function() { return SET_TALK; });
 var SET_ALL_TALKS = "setAllTalks";
 var SET_ALL_ATTENDEES = "setAllAttendees";
+var SET_TALK_ATTENDEES = "setTalkAttendees";
 var SET_TALK = "setTalk";
 
 /***/ }),
