@@ -59,6 +59,14 @@
 
                     <b-col cols="1">
                       <b-row class="mt-2">
+                         <b-col  @click="viewTalkAttendees(talk.id)">
+                          <!-- <img src="../../assets/delete.png" alt=""> --> 
+                          <span id="talkAttendees" class="fa fa-eye"></span>
+                        </b-col>
+                        <b-tooltip target="talkAttendees" triggers="hover">
+                          View Talk Attendees
+                        </b-tooltip>
+
                         <b-col  @click="deleteTalk(talk.id, talk.theme)">
                           <!-- <img src="../../assets/delete.png" alt=""> --> 
                           <span id="delete" class="fa fa-trash-o"></span>

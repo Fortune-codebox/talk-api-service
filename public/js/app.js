@@ -2206,6 +2206,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/talkAttendees.js?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/pages/talk/talk-attendees/talkAttendees.js?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _store_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../store/actions */ "./resources/js/store/actions/index.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      talkId: null,
+      attendees: {},
+      talk: {}
+    };
+  },
+  methods: {
+    getTalkAttendees: function getTalkAttendees() {
+      var _this = this;
+
+      this.$store.dispatch(_store_actions__WEBPACK_IMPORTED_MODULE_1__["GET_TALK_ATTENDEES"], this.talkId).then(function (data) {
+        _this.attendees = data.data;
+      });
+    }
+  },
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])(['talks'])),
+  mounted: function mounted() {
+    this.getTalkAttendees();
+  },
+  created: function created() {
+    var _this2 = this;
+
+    this.talkId = this.$route.params.talkId;
+    this.talk = this.talks.find(function (a) {
+      return a.id === _this2.talkId;
+    });
+    console.log(this.talk);
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./resources/js/pages/talk/talk-overview/talkOverview.js?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./resources/js/pages/talk/talk-overview/talkOverview.js?vue&type=script&lang=js& ***!
@@ -2253,6 +2306,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
 
         _this.getAllTalks();
+      });
+    },
+    viewTalkAttendees: function viewTalkAttendees(id) {
+      this.$router.push({
+        name: 'talk-attendees',
+        params: {
+          talkId: id
+        }
       });
     }
   },
@@ -44409,6 +44470,25 @@ exports.push([module.i, ".card_adj[data-v-69526440] {\n  width: 70%;\n  margin-l
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-overview/TalkOverview.vue?vue&type=style&index=0&id=21680944&lang=scss&scoped=true&":
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/talk/talk-overview/TalkOverview.vue?vue&type=style&index=0&id=21680944&lang=scss&scoped=true& ***!
@@ -49042,6 +49122,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-overview/TalkOverview.vue?vue&type=style&index=0&id=21680944&lang=scss&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/talk/talk-overview/TalkOverview.vue?vue&type=style&index=0&id=21680944&lang=scss&scoped=true& ***!
@@ -50218,6 +50328,105 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "b-card",
+        { staticClass: "card_adj" },
+        [
+          _c("h4", [_vm._v("Talk Attendees")]),
+          _vm._v(" "),
+          _c("div", [
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("Talk Theme:")
+            ]),
+            _vm._v("  " + _vm._s(_vm.talk.theme) + " "),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-weight-bold" }, [_vm._v("Host: ")]),
+            _vm._v(" " + _vm._s(_vm.talk.host) + "    "),
+            _c("br"),
+            _vm._v(" "),
+            _c("span", { staticClass: "font-weight-bold" }, [
+              _vm._v("Guest Speaker: ")
+            ]),
+            _vm._v(" " + _vm._s(_vm.talk.guest_speaker) + "\n     ")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.attendees, function(attendee, i) {
+            return _c(
+              "div",
+              { key: i },
+              [
+                _c(
+                  "b-card",
+                  { staticClass: "mt-3 shadow" },
+                  [
+                    _c(
+                      "b-row",
+                      [
+                        _c("b-col", [
+                          _c(
+                            "small",
+                            { staticStyle: { "font-weight": "bold" } },
+                            [_vm._v("name")]
+                          ),
+                          _vm._v(
+                            ": " +
+                              _vm._s(attendee.first_name) +
+                              " " +
+                              _vm._s(attendee.last_name)
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("b-col", [
+                          _c(
+                            "small",
+                            { staticStyle: { "font-weight": "bold" } },
+                            [_vm._v(" Reason For Attending")]
+                          ),
+                          _vm._v(": " + _vm._s(attendee.reason_for_attending))
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          })
+        ],
+        2
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-overview/TalkOverview.vue?vue&type=template&id=21680944&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/talk/talk-overview/TalkOverview.vue?vue&type=template&id=21680944&scoped=true& ***!
@@ -50331,6 +50540,38 @@ var render = function() {
                             "b-row",
                             { staticClass: "mt-2" },
                             [
+                              _c(
+                                "b-col",
+                                {
+                                  on: {
+                                    click: function($event) {
+                                      return _vm.viewTalkAttendees(talk.id)
+                                    }
+                                  }
+                                },
+                                [
+                                  _c("span", {
+                                    staticClass: "fa fa-eye",
+                                    attrs: { id: "talkAttendees" }
+                                  })
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "b-tooltip",
+                                {
+                                  attrs: {
+                                    target: "talkAttendees",
+                                    triggers: "hover"
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                      View Talk Attendees\n                    "
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
                               _c(
                                 "b-col",
                                 {
@@ -66885,7 +67126,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "API_URL", function() { return API_URL; });
-var API_URL = "http://talk-1.herokuapp.com/api"; // export const API_URL = "http://localhost:8000/api";
+// export const API_URL = "http://talk-1.herokuapp.com/api";
+var API_URL = "http://localhost:8000/api";
 
 /***/ }),
 
@@ -67175,6 +67417,94 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/pages/talk/talk-attendees/TalkAttendees.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/pages/talk/talk-attendees/TalkAttendees.vue ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TalkAttendees_vue_vue_type_template_id_c9eb7a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true& */ "./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true&");
+/* harmony import */ var _talkAttendees_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./talkAttendees.js?vue&type=script&lang=js& */ "./resources/js/pages/talk/talk-attendees/talkAttendees.js?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _talkAttendees_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _talkAttendees_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _TalkAttendees_vue_vue_type_style_index_0_id_c9eb7a80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true& */ "./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _talkAttendees_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TalkAttendees_vue_vue_type_template_id_c9eb7a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TalkAttendees_vue_vue_type_template_id_c9eb7a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "c9eb7a80",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/pages/talk/talk-attendees/TalkAttendees.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_style_index_0_id_c9eb7a80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=style&index=0&id=c9eb7a80&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_style_index_0_id_c9eb7a80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_style_index_0_id_c9eb7a80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_style_index_0_id_c9eb7a80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_style_index_0_id_c9eb7a80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_style_index_0_id_c9eb7a80_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true&":
+/*!*************************************************************************************************************!*\
+  !*** ./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true& ***!
+  \*************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_template_id_c9eb7a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/TalkAttendees.vue?vue&type=template&id=c9eb7a80&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_template_id_c9eb7a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TalkAttendees_vue_vue_type_template_id_c9eb7a80_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/pages/talk/talk-attendees/talkAttendees.js?vue&type=script&lang=js&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/pages/talk/talk-attendees/talkAttendees.js?vue&type=script&lang=js& ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_talkAttendees_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!./talkAttendees.js?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./resources/js/pages/talk/talk-attendees/talkAttendees.js?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_talkAttendees_js_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/talk/talk-overview/TalkOverview.vue":
 /*!****************************************************************!*\
   !*** ./resources/js/pages/talk/talk-overview/TalkOverview.vue ***!
@@ -67277,6 +67607,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_talk_talk_overview_TalkOverview_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/talk/talk-overview/TalkOverview.vue */ "./resources/js/pages/talk/talk-overview/TalkOverview.vue");
 /* harmony import */ var _pages_talk_edit_talk_EditTalk_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/talk/edit-talk/EditTalk.vue */ "./resources/js/pages/talk/edit-talk/EditTalk.vue");
 /* harmony import */ var _pages_talk_create_attendee_CreateAttendee_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/talk/create-attendee/CreateAttendee.vue */ "./resources/js/pages/talk/create-attendee/CreateAttendee.vue");
+/* harmony import */ var _pages_talk_talk_attendees_TalkAttendees_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/talk/talk-attendees/TalkAttendees.vue */ "./resources/js/pages/talk/talk-attendees/TalkAttendees.vue");
+
 
 
 
@@ -67310,6 +67642,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
       path: '/add-attendee',
       name: 'add-attendee',
       component: _pages_talk_create_attendee_CreateAttendee_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+    }, {
+      path: '/talk-attendees/:talkId',
+      name: 'talk-attendees',
+      component: _pages_talk_talk_attendees_TalkAttendees_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
     }]
   }]
 });
@@ -67321,7 +67657,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 /*!*********************************************!*\
   !*** ./resources/js/store/actions/index.js ***!
   \*********************************************/
-/*! exports provided: GET_ALL_TALKS, GET_TALK, DELETE_TALK, CREATE_TALK, CREATE_ATTENDEE, GET_ALL_ATTENDEES */
+/*! exports provided: GET_ALL_TALKS, GET_TALK, DELETE_TALK, CREATE_TALK, CREATE_ATTENDEE, GET_TALK_ATTENDEES */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -67331,14 +67667,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_TALK", function() { return DELETE_TALK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_TALK", function() { return CREATE_TALK; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CREATE_ATTENDEE", function() { return CREATE_ATTENDEE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ALL_ATTENDEES", function() { return GET_ALL_ATTENDEES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_TALK_ATTENDEES", function() { return GET_TALK_ATTENDEES; });
 var GET_ALL_TALKS = "get_all_talks";
 var GET_TALK = "getTalk";
 var DELETE_TALK = "deletetalk";
 var CREATE_TALK = "createTalk"; //attendees
 
 var CREATE_ATTENDEE = "create_attendee";
-var GET_ALL_ATTENDEES = "get_all_attendees";
+var GET_TALK_ATTENDEES = "get_all_attendees";
 
 /***/ }),
 
@@ -67431,7 +67767,7 @@ var actions = (_actions = {}, _defineProperty(_actions, _actions__WEBPACK_IMPORT
       }
     }, _callee);
   }))();
-}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["GET_ALL_ATTENDEES"], function (context) {
+}), _defineProperty(_actions, _actions__WEBPACK_IMPORTED_MODULE_1__["GET_TALK_ATTENDEES"], function (context, payload) {
   return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
     var _yield$ApiService$que2, data;
 
@@ -67440,7 +67776,7 @@ var actions = (_actions = {}, _defineProperty(_actions, _actions__WEBPACK_IMPORT
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"].query('/attendees');
+            return _handler__WEBPACK_IMPORTED_MODULE_3__["ApiService"].query('/talk/attendees/' + payload);
 
           case 2:
             _yield$ApiService$que2 = _context2.sent;

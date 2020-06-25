@@ -1,7 +1,7 @@
 // import Vue from "vue";
 import {
     GET_ALL_TALKS,
-    GET_ALL_ATTENDEES,
+    GET_TALK_ATTENDEES,
     CREATE_TALK,
     CREATE_ATTENDEE,
     DELETE_TALK
@@ -27,8 +27,8 @@ import {
       return data;
     },
 
-    async [GET_ALL_ATTENDEES](context) {
-      const {data} = await ApiService.query('/attendees');
+    async [GET_TALK_ATTENDEES](context, payload) {
+      const {data} = await ApiService.query('/talk/attendees/' + payload);
       context.commit(SET_ALL_ATTENDEES, data.data)
       return data;
     },

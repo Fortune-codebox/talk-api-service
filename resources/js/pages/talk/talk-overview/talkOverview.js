@@ -1,5 +1,5 @@
-import {mapGetters} from "vuex";
-import { GET_ALL_TALKS, DELETE_TALK } from "../../../store/actions";
+    import {mapGetters} from "vuex";
+    import { GET_ALL_TALKS, DELETE_TALK } from "../../../store/actions";
 
 
 export default {
@@ -32,6 +32,9 @@ export default {
                       this.getAllTalks();
                   }
               )
+        },
+        viewTalkAttendees(id) {
+            this.$router.push({name: 'talk-attendees', params: {talkId: id}})
         }
     },
     computed: {

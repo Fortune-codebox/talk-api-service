@@ -17,7 +17,6 @@ class TalkController extends Controller
     public function getTalks() {
         // get all talks LIFO i.e last in first out
         $talks = Talk::latest()->get();
-
         // checks if the query was not empty then return the talk array
         if($talks) {
             return $this->apiResponse(200, 'success', $talks);
@@ -27,6 +26,14 @@ class TalkController extends Controller
         return $this->apiResponse(200, 'success', []);
     }
 
+    public function getTalkAttendees($id) {
+        $talk = Talk::find($id);
+        $attendees = $talk->attendees()->get();
+        return $this->apiResponse(200, 'success', $attendees);
+
+    }
+
+
     public function addTalk(TalkRequest $request) {
 
         // validate talk requests
@@ -35,14 +42,14 @@ class TalkController extends Controller
         // creates a talk if it doesn't exist
         $createdTalk = Talk::createIfNotExist($validatedTalk);
 
-        $formatted = $this->formatData($createdTalk);
+        // $formatted = $this->formatData($createdTalk);
         
         // if attendees was sent from the request it will sync the pivot table else it will create the talk without attendees
         if($request->attendees) {
          $createdTalk->attendees()->sync($request->attendees);
         }
 
-        return $this->apiResponse(201, 'success', $formatted);
+        return $this->apiResponse(201, 'success', $createdTalk);
     }
 
 
