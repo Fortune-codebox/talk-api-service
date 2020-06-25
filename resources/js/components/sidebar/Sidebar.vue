@@ -23,11 +23,6 @@
                 <i class="fa fa-talk"></i>
                 <span class="px-3">Create talk</span>
             </b-nav-item>
-
-
-            
-
-
             </b-navbar-nav>
         </div>
     </aside>
