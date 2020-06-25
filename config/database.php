@@ -42,15 +42,15 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
-
+        
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', 'us-cdbr-east-05.cleardb.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'heroku_e61dff50abfe9a6'),
-            'username' => env('DB_USERNAME', 'be9e09fb26ff59'),
-            'password' => env('DB_PASSWORD', 'c4d58dce'),
+            'database' => env('DB_DATABASE', 'heroku_1c4ea5b412f9d7e'),
+            'username' => env('DB_USERNAME', 'bfe28bb36bdc96'),
+            'password' => env('DB_PASSWORD', 'c9a24566'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
